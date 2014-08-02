@@ -9,10 +9,10 @@ module RQRCodePNG
     end
 
     # Returns an image file of the QR Code
-    def render bg_color = WHITE
+    def render(bg_color = WHITE, main_color = BLACK)
       png = blank_img(bg_color)
       @sequence.dark_squares_only do |x, y|
-        png[y + @sequence.border_width(), x + @sequence.border_width()] = BLACK
+        png[y + @sequence.border_width(), x + @sequence.border_width()] = main_color
       end
       return png
     end
